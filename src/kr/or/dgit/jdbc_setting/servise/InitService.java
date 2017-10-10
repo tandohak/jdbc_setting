@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import kr.or.dgit.jdbc_setting.dao.DatabaseDao;
 
-public class InitService implements DbServise {
+public class InitService implements DbService {
 	private static final InitService instance = new InitService();
 	
 	public static InitService getInstance() {

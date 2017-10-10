@@ -1,5 +1,5 @@
 package kr.or.dgit.jdbc_setting.servise;
 
-public interface DbServise {
+public interface DbService {
 	void service();
 }

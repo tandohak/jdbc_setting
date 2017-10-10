@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import kr.or.dgit.jdbc_setting.jdbc.DBCon;
-import kr.or.dgit.jdbc_setting.jdbc.JdbcUtill;
+import kr.or.dgit.jdbc_setting.jdbc.JdbcUtil;
 
 public class DatabaseDao {
 	private static final DatabaseDao instance = new DatabaseDao();
@@ -27,13 +27,13 @@ public class DatabaseDao {
 			System.err.printf("%s - %s%n", e.getErrorCode(), e.getMessage());
 			e.printStackTrace();
 		}finally {
-			JdbcUtill.close(pstmt);
+			JdbcUtil.close(pstmt);
 		}
 	}
 	
 	public ResultSet excuteQuerySQL(String sql) throws SQLException{
 		Connection con = DBCon.getInstance().getConnection();
-		PreparedStatement pstmt = null;		
+		PreparedStatement pstmt = con.prepareStatement(sql);;		
 		return pstmt.executeQuery();
 	}
 }
