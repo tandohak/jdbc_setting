@@ -23,15 +23,16 @@ public class DBCon {
 	private DBCon(){
 		Properties properties = getPropertys("conf.properties");
 		try {
+			String user = properties.getProperty("user");
+			String pwd = properties.getProperty("pwd");
+			String url = properties.getProperty("url");
 			
-			connection = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("user"), properties.getProperty("pwd"));
+			connection = DriverManager.getConnection(url, user, pwd);
 		} catch (SQLException e) {
 			System.err.printf("%s - %s%n", e.getErrorCode(), e.getMessage());
 			e.printStackTrace();
 		}
-		/*System.out.println(properties.getProperty("user"));
-		System.out.println(properties.getProperty("pwd"));
-		System.out.println(properties.getProperty("url"));*/
+		
 		
 	}
 	
